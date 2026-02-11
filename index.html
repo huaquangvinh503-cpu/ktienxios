@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KtienXios CHEAT MENU</title>
+    <style>
+        p {
+            font-size: 16px;
+            color: #ff0000e5;
+            line-height: 1.6;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #ff0000;
+            border: none;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .tab-button.active {
+            background-color: #ff000015;
+        }
+        
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+            color: #ffffff;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 20px;
+            color: #e40000;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #ff4444;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .close:hover {
+            color: #ffffff;
+        }
+        
+        .telegram-link {
+            color: rgb(255, 0, 0);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #particles-js {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            /* تجاهل تفاعلات المؤشر */
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: rgb(255, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .cheat-menu {
+            background-color: #ff333300;
+            padding: 25px;
+            border-radius: 20px;
+            width: 340px;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.945);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cheat-menu h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff0000;
+        }
+        
+        .toggle-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1px;
+            padding: 2px;
+            background-color: #ff000000;
+            border-radius: 12px;
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+        
+        .toggle-item:hover {
+            background-color: #f3000000;
+            transform: scale(1.03);
+        }
+        
+        .toggle-item label {
+            flex: 1;
+            font-size: 20px;
+            padding-right: 10px;
+            color: #ff0000;
+            line-height: 1.5;
+        }
+        
+        .toggle-item input[type="checkbox"] {
+            width: 50px;
+            height: 25px;
+            appearance: none;
+            background-color: #ff0000;
+            border-radius: 20px;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .toggle-item input[type="checkbox"]:checked {
+            background-color: #259c16;
+        }
+        
+        .toggle-item input[type="checkbox"]::before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            top: 1.5px;
+            left: 2px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .toggle-item input[type="checkbox"]:checked::before {
+            transform: translateX(25px);
+        }
+        /* Adding a glowing effect on active toggles */
+        
+        .toggle-item input[type="checkbox"]:checked {
+            box-shadow: 0 0 10px #4caf50;
+        }
+        /* Blood splatter effect on background */
+        
+        .cheat-menu::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100%;
+            height: 100%;
+            background-color: #f3000000;
+            /* Example blood splatter image */
+            background-size: contain;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .cheat-menu>* {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .icon {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+        }
+        /* Custom Scrollbar */
+        
+         ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: #ff3333;
+            border-radius: 8px;
+        }
+        
+        .login-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+        }
+        
+        .login-form input[type="submit"] {
+            padding: 10px;
+            background-color: #ff0000c5;
+            color: rgba(255, 255, 255, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 300px;
+            transition: background-color 0.3s;
+        }
+        
+        .login-form input[type="submit"]:hover {
+            background-color: #d40e0eb0;
+        }
+        
+        .buttons {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .login-form {
+            margin-top: 20px;
+        }
+        
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0);
+            /* خلفية شفافة */
+            box-shadow: inset 0 4px 4px rgba(195, 0, 255, 0);
+            color: #ff0000;
+            font-size: 1em;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tab-button {
+            padding: 8px 10px;
+            margin: 1px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #f1070760 0%, #a700e900 100%);
+            border: none;
+            color: rgb(255, 1, 1);
+            border-radius: 30px;
+            font-size: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        /* تأثير hover عند مرور الماوس على الأزرار */
+        
+        .tab-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgb(243, 0, 0);
+        }
+        /* تمييز الزر النشط */
+        
+        v .tab-button.active {
+            background: #ff0101f6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cheat-menu">
+
+        <image width="80" height="80" src="https://i.postimg.cc/FHzSgHGW/119151.png" />
+        <div id="particles-js"></div>
+
+
+        <div class="login-form" id="loginForm">
+            <p id="error-message" style="color: red; display: none;">INVALID password</p>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button class="tab-button" onclick="handleLogin()">Login</button>
+
+        </div>
+        <div class="buttons" id="actionButtons">
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab('home')">Aim</button>
+                <button class="tab-button" onclick="openTab('features')">Snipers</button>
+                <button class="tab-button" onclick="openTab('about')">Speed</button>
+            </div>
+
+            <div id="home" class="tab-content active">
+                <h2>KtienXios MENU</h2>
+                <div class="toggle-item">
+                    <label for="Aimbot DRAG">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Aimbot DRAG  <br> 
+            </label>
+                    <input type="checkbox" id="Aimbot DRAG" onclick="playSound(this);so98()">
+                    <span class="slider"></span>
+                </div>
+
+                <div class="toggle-item">
+                    <label for="Norecoil">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Norecoil  <br>
+            </label>
+                    <input type="checkbox" id="Norecoil" onclick="playSound(this);Norecoil()">
+                    <span class="slider"></span>
+                </div>
+
+
+                <div class="toggle-item">
+                    <label for="Aim 180">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Aim 180 <br> 
+            </label>
+                    <input type="checkbox" id="Aim 180" onclick="playSound(this);aim180()">
+                    <span class="slider"></span>
+                </div>
+
+                <div class="toggle-item">
+                    <label for=" Aimbot Scope">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Aimbot Scope <br> 
+            </label>
+                    <input type="checkbox" id=" Aimbot Scope" onclick="playSound(this);s105s()">
+                    <span class="slider"></span>
+                </div>
+                <div class="toggle-item">
+                    <label for="Lock Scope">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Lock Scope <br> 
+            </label>
+                    <input type="checkbox" id="Lock Scope" onclick="playSound(this);lockscope()">
+                    <span class="slider"></span>
+                </div>
+
+                <div class="toggle-item">
+                    <label for="Aim Lock">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Aim Lock <br> 
+            </label>
+                    <input type="checkbox" id="Aim Lock" onclick="playSound(this);Aimlock()">
+                    <span class="slider"></span>
+                </div>
+
+            </div>
+
+
+
+            <div id="features" class="tab-content">
+                <h2>KtienXios MENU</h2>
+                <div class="toggle-item">
+                    <label for="Snper scope">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Sniper Scope <br> 
+            </label>
+                    <input type="checkbox" id="Snper scope" onclick="playSound(this);so91()">
+                    <span class="slider"></span>
+                </div>
+
+                <div class="toggle-item">
+                    <label for="Snper No scope">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Snper No scope <br> 
+            </label>
+                    <input type="checkbox" id="Snper No scope" onclick="playSound(this);s100s()">
+                    <span class="slider"></span>
+                </div>
+                <div class="toggle-item">
+                    <label for="quick-switch">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Quick Switch  <br> 
+            </label>
+                    <input type="checkbox" id="Quick Switch" onclick="playSound(this);s101s()">
+                    <span class="slider"></span>
+                </div>
+                <div class="toggle-item">
+                    <label for="Arm Switch">
+                <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Arm Switch <br> 
+            </label>
+                    <input type="checkbox" id="Arm Switch" onclick="playSound(this);so89()">
+                </div>
+            </div>
+        </div>
+
+        <div id="about" class="tab-content">
+
+            <h2>KtienXios MENU</h2>
+
+            <p>Speed(in game) Restore after game is over.</p>
+
+            <div class="toggle-item">
+                <label for="Search">
+            <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Search <br> 
+        </label>
+                <input type="checkbox" id="Search" onclick="playSound(this);Search()">
+            </div>
+
+            <div class="toggle-item">
+                <label for="Restore">
+            <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> Restore <br> 
+        </label>
+                <input type="checkbox" id="Restore" onclick="playSound(this);Restore()">
+            </div>
+
+            <h2>speed</h2>
+
+            <div class="toggle-item">
+                <label for="SPEED x2">
+            <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> SPEED x2<br> 
+        </label>
+                <input type="checkbox" id="SPEED x2" onclick="playSound(this);X2()">
+            </div>
+
+            <div class="toggle-item">
+                <label for="SPEED x5">
+            <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> SPEED x5<br> 
+        </label>
+                <input type="checkbox" id="SPEED x5" onclick="playSound(this);X5()">
+            </div>
+
+            <div class="toggle-item">
+                <label for="SPEED x7">
+            <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon"> SPEED x7<br> 
+        </label>
+                <input type="checkbox" id="SPEED x7" onclick="playSound(this);X7()">
+            </div>
+
+        </div>
+
+
+        <img src="https://i.postimg.cc/FHzSgHGW/119151.png" class="icon">
+        <label id="Me">✨ktienXios✨  <a class="telegram-link" href="https://discord.gg/EhSWfGJjF3"> KtienXios CHEAT
+        </a></label>
+    </div>
+    <!-- Rest of your existing code... -->
+
+    <audio id="loginSound" src="https://www.sendgb.com/src/download_one.php?uploadId=sjyh3iMwLE1&sc=c2259f8ee88b4d34fe3d8808116b2dfe&file=RIJNIX+CHEAT+PANEL.mp3&private_id=" preload="auto"></audio>
+    <script>
+        function openTab(tabId) {
+            var tabs = document.getElementsByClassName("tab-content");
+            var buttons = document.getElementsByClassName("tab-button");
+
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabId).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+    <script>
+        function handleLogin() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('error-message');
+            const actionButtons = document.getElementById('actionButtons');
+            const loginForm = document.getElementById('loginForm');
+            const loginSound = document.getElementById('loginSound');
+
+            if (username === 'ktienxios' && password === '123') { // بيانات الدخول
+                alert('WELCOM TO KtienXios CHEAT CHANE');
+                errorMessage.style.display = 'none';
+                actionButtons.style.display = 'block'; // إظهار الأزرار
+                loginForm.style.display = 'none'; // إخفاء نموذج تسجيل الدخول
+                loginSound.play(); // تشغيل صوت تسجيل الدخول
+            } else {
+                errorMessage.style.display = 'block'; // إظهار رسالة الخطأ
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
+    </script>
+    <script>
+        function playSound(checkbox) {
+            if (checkbox.checked) {
+                var audio = new Audio('https://www.sendgb.com/src/download_one.php?uploadId=CGKDk4bRPd8&sc=86de4cc58324d35f56f151aee84b6ddb&file=OPCION_ACTIVADA_AUDIO_VOZ_1.wav&private_id='); // استبدل 'sound.mp3' بمسار ملف الصوت الخاص بك
+                audio.play();
+            }
+        }
+    </script>
+    <script>
+        // دالة لإغلاق القائمة
+        function closeMenu() {
+            document.querySelector('.cheat-menu').style.display = 'none';
+        }
+    </script>
+
+    </script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 120,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#FFF"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#FFF"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#FFF",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+    <script>
+        function aim180() {
+            h5gg.clearResults();
+            h5gg.searchNumber('1057048494', 'I32', '0x100000000', '0x160000000');
+            h5gg.editAll('-2000', 'I32');
+            h5gg.clearResults();
+            h5gg.searchNumber('1054951342', 'I32', '0x100000000', '0x160000000');
+            h5gg.editAll(
+                '-2000', 'I32');
+            h5gg.clearResults();
+            h5gg.searchNumber('1053273620', 'I32', '0x100000000', '0x160000000');
+            h5gg.editAll('-2000', 'I32');
+            h5gg.clearResults();
+            vant.showNotify({
+                type: 'success',
+                message: 'Aim 180'
+            });
+        }
+
+        function so91() {
+            alert(' SNIPER SCOPE DONE')
+            h5gg.clearResults();
+            h5gg.searchNumber('31101603021', 'I64', '0x100000000', '0x160000000');
+            var count = h5gg.getResultsCount();
+            var r = h5gg.getResults(count);
+            var cnt = 0;
+            for (var i = 0; i < count; i++) {
+                var addr1 = r[i].address;
+
+                var dizhi0 = (Number(addr1) + 8);
+
+
+
+
+                {
+                    h5gg.setValue(dizhi0, 2139095040, "I32");
+
+                }
+            }
+            vant.showNotify({
+                type: 'success',
+                message: '𝐒𝐧𝐢𝐩𝐞𝐫 𝐒𝐜𝐨𝐩'
+            });
+        }
+
+
+        function Norecoil() {
+            function searchAndReplace(searchValue, replaceValue, type) {
+                h5gg.clearResults();
+                h5gg.searchNumber(searchValue, type, '0x100000000', '0x160000000');
+                var results = h5gg.getResults(h5gg.getResultsCount());
+                for (var i = 0; i < results.length; i++) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), type)
+                }
+            }
+            searchAndReplace(1016018816, 180, 'I32')
+
+            vant.showNotify({
+                type: 'success',
+                message: 'No Recoli '
+            });
+
+        }
+
+        function s100s() {
+            h5gg.clearResults();
+            h5gg.searchNumber('4603687625386098688', 'I64', '0x100000000', '0x160000000');
+            var count = h5gg.getResultsCount();
+            var r = h5gg.getResults(count);
+            var cnt = 0;
+            for (var i = 0; i < count; i++) {
+                var addr1 = r[i].address;
+
+                var dizhi0 = (Number(addr1) + 36);
+                var dizhi1 = (Number(addr1) + 40);
+                var dizhi2 = (Number(addr1) + -308);
+
+
+
+                {
+                    h5gg.setValue(dizhi0, 0.01, "F32");
+                    h5gg.setValue(dizhi1, 0.01, "F32");
+                    h5gg.setValue(dizhi2, 0, "I32");
+
+                }
+            }
+            vant.showNotify({
+                type: 'success',
+                message: 'Awm Aim'
+            });
+
+
+        }
+
+
+        function s00() {
+            h5gg.clearResults();
+            h5gg.searchNumber('31101603021', 'I64', '0x100000000', '0x160000000');
+            var count = h5gg.getResultsCount();
+            var r = h5gg.getResults(count);
+            var cnt = 0;
+            for (var i = 0; i < count; i++) {
+                var addr1 = r[i].address;
+
+                var dizhi0 = (Number(addr1) + 8);
+
+
+
+
+                {
+                    h5gg.setValue(dizhi0, 2139095040, "I32");
+
+                }
+            }
+            vant.showNotify({
+                type: 'success',
+                message: 'Awm Scop'
+            });
+        }
+
+        function s101s() {
+            h5gg.clearResults();
+            h5gg.searchNumber('4603687625386098688', 'I64', '0x100000000', '0x160000000');
+            var count = h5gg.getResultsCount();
+            var r = h5gg.getResults(count);
+            var cnt = 0;
+            for (var i = 0; i < count; i++) {
+                var addr1 = r[i].address;
+
+                var dizhi0 = (Number(addr1) + 36);
+                var dizhi1 = (Number(addr1) + 40);
+
+
+
+                {
+                    h5gg.setValue(dizhi0, 0.01, "F32");
+                    h5gg.setValue(dizhi1, 0.01, "F32");
+
+                }
+            }
+            vant.showNotify({
+                type: 'success',
+                message: 'Awm Switch '
+            });
+
+
+        }
+
+        function so89() {
+            h5gg.clearResults();
+            h5gg.searchNumber('72340173878198272', 'I64', '0x100000000', '0x130000000');
+            h5gg.editAll('72340172821233664', 'I64');
+            vant.showNotify({
+                type: 'success',
+                message: 'Arm Switch'
+            });
+
+
+        }
+
+        function so98() {
+
+            alert('AIM DRAG DONE ')
+
+            function searchAndReplace(searchValue, replaceValue, type) {
+                h5gg.clearResults();
+                h5gg.searchNumber(searchValue, type, '0x100000000', '0x160000000');
+                var results = h5gg.getResults(h5gg.getResultsCount());
+                for (var i = 0; i < results.length && i < 10; i++) {
+                    h5gg.setValue(results[i].address, replaceValue.toString(), type);
+                }
+            }
+            searchAndReplace(3145840, 49, 'I32');
+            vant.showNotify({
+                type: 'success',
+                message: 'AIM DRAG BY RIJNIX'
+            });
+        }
+
+        function s105s() {
+
+            h5gg.clearResults();
+            h5gg.searchNumber('0.09', 'F32', '0x0', '0x20000000000');
+            h5gg.editAll('180', 'F32');
+            h5gg.clearResults();
+            vant.showNotify({
+                type: 'success',
+                message: '𝐀IMBOT SCOP'
+            });
+        }
+
+        function X2() {
+            h5gg.editAll('4397530849758414897', 'I64');
+            vant.showNotify({
+                type: 'success',
+                message: 'X2'
+            });
+        }
+
+        function X5() {
+            h5gg.editAll('4397530849752414897', 'I64');
+            vant.showNotify({
+                type: 'success',
+                message: 'X5'
+            });
+
+
+        }
+
+        function X7() {
+            h5gg.editAll('4397530849750414897', 'I64');
+            vant.showNotify({
+                type: 'success',
+                message: 'X7'
+            });
+        }
+
+        function Search() {
+            h5gg.clearResults();
+            h5gg.searchNumber('4397530849764387586', 'I64', '0x100000000', '0x200000000');
+            alert('Acitve(' + h5gg.getResultsCount() + '/1)');
+            vant.showNotify({
+                type: 'success',
+                message: 'Search'
+            });
+        }
+
+        function Restore() {
+            h5gg.editAll('4397530849764387586', 'I64');
+            vant.showNotify({
+                type: 'success',
+                message: 'Restore'
+            });
+
+        }
+
+        function lockscope() {
+            h5gg.clearResults();
+            h5gg.searchNumber('1075000115', 'I32', '0x100000000', '0x160000000');
+            h5gg.editAll('-5', 'I32');
+            h5gg.clearResults();
+            h5gg.searchNearby('3', 'I32', '0x100');
+            h5gg.editAll('-5', 'I32');
+            h5gg.clearResults();
+            h5gg.searchNumber('1075000115', 'I32', '0x100000000', '0x160000000');
+            h5gg.editAll('-5', 'I32');
+            h5gg.clearResults();
+            vant.showNotify({
+                type: 'success',
+                message: 'Lock Scope'
+            });
+
+        }
+
+        function Aimlock() {
+            h5gg.clearResults();
+            modifyValue(1077936128, -20001, 'A04');
+            modifyValue(1069547520, 1148829696, 'A10');
+            h5gg.clearResults();
+            codeStatus = true;
+            vant.showNotify({
+                type: 'success',
+                message: 'Aim Lock'
+            });
+
+        }
+    </script>
+    </script>
+</body>
+
+</html>
